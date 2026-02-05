@@ -30,10 +30,10 @@ rat = Warrior(53, "rat", claws, hide, 41)
 goblin = Warrior(40, "goblin", kinjal, iron_armor, 31)
 skeleton = Warrior(64, "skeleton", knife, leather_armor, 36)
 wizzard = Warrior(72, "wizzard", wizzard_staff, cloak, 67)
-goblin_king = Warrior(120, "goblin king", bylava, hide, 120)
+goblin_king = Warrior(115, "goblin king", bylava, hide, 120)
 golem = Warrior(163, "golem", golem_fists, stone_armor, 134)
 witch = Warrior(105, "witch", witch_staff, cloak, 96)
-dragon = Warrior(174, "dragon", dragon_claw, dragon_armor, 201)
+dragon = Warrior(164, "dragon", dragon_claw, dragon_armor, 201)
 
 hero = Hero(109, "hero", sword, iron_armor, 1000)
 
