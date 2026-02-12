@@ -1,4 +1,4 @@
-from clasess import Warrior, Hero, Weapon, Room, Dungeon, Armor, Magazin, Potion
+from clasess import Warrior, Hero, Weapon, Room, Dungeon, Armor, Magazin, Potion, Magic
 import random
 
 
@@ -9,12 +9,12 @@ claws = Weapon("claws", 15, 19, 164)
 sekira = Weapon("sekira", 26, 29, 290)
 kinjal = Weapon("kinjal", 10, 16, 130)
 knife = Weapon("knife", 14, 18, 140)
-bylava = Weapon("bylava", 30, 45, 320)
+bylava = Weapon("bylava", 30, 43, 320)
 golem_fists = Weapon("golem fists", 16, 21, 154)
 wizzard_staff = Weapon("wizzard staff", 23, 30, 270)
 witch_staff = Weapon("witch staff", 22, 30, 333)
-dragon_claw = Weapon("dragon claw", 57, 70, 1730)
-legendary_sword = Weapon("legendary sword", 56, 64, 2899)
+dragon_claw = Weapon("dragon claw", 51, 63, 1730)
+legendary_sword = Weapon("legendary sword", 56, 64, 2753)
 super_bow = Weapon("super bow", 46, 54, 1450)
 
 iron_armor = Armor("iron armor", 14, 267)
@@ -31,17 +31,23 @@ goblin = Warrior(40, "goblin", kinjal, iron_armor, 31)
 skeleton = Warrior(64, "skeleton", knife, leather_armor, 36)
 wizzard = Warrior(72, "wizzard", wizzard_staff, cloak, 67)
 goblin_king = Warrior(115, "goblin king", bylava, hide, 120)
-golem = Warrior(163, "golem", golem_fists, stone_armor, 134)
+golem = Warrior(153, "golem", golem_fists, stone_armor, 134)
 witch = Warrior(105, "witch", witch_staff, cloak, 96)
 dragon = Warrior(164, "dragon", dragon_claw, dragon_armor, 201)
 
-hero = Hero(109, "hero", sword, iron_armor, 1000)
+stick = Magic("stick", 3, 66)
+super_stick = Magic("super stick", 13, 201)
+puper_stick = Magic("puper stick", 17, 367)
+super_puper_stick = Magic('super puper stick', 20, 458)
+mega_stick = Magic("mega stick", 24, 682)
+
+hero = Hero(109, "hero", sword, iron_armor, 1000, stick)
 
 sm_reg_potion = Potion("small regeneration potion", 29, 71)
 med_reg_potion = Potion("meidium regeneration potion", 57, 204)
 big_reg_potion = Potion("big regeneration potion", 99, 530)
 
-torgovez = Magazin(9000, [super_bow, legendary_sword, dragon_armor, sm_reg_potion, med_reg_potion, big_reg_potion])
+torgovez = Magazin(9000, [super_bow, legendary_sword, dragon_armor, sm_reg_potion, med_reg_potion, big_reg_potion, mega_stick,puper_stick, super_stick, super_puper_stick])
 
 room1 = Room(skeleton)
 room2 = Room(goblin)

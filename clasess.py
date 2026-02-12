@@ -22,9 +22,10 @@ class Warrior:
 
 
 class Hero(Warrior):
-    def __init__(self, hp, name, weapon, armor, money):
+    def __init__(self, hp, name, weapon, armor, money, magic):
         super().__init__(hp, name, weapon, armor, money)
         self.max_hp = hp
+        self.magic = magic
         self.inventory = []
 
     def print_inventory(self):
@@ -80,6 +81,19 @@ class Hero(Warrior):
         elif isinstance(self.inventory[n_ekipirovki], Potion):
             self.hp = self.hp + self.inventory[n_ekipirovki].regeneration
             self.inventory.pop(n_ekipirovki)
+        elif isinstance(self.inventory[n_ekipirovki], Magic):
+            stick_arxiv = self.inventory.pop(n_ekipirovki)
+            self.inventory.append(self.magic)
+            self.magic = stick_arxiv
+
+    def magic_dmg(self, enemy):
+        if self.magic == None:
+            print("у тебя нет магии")
+            return
+        else:
+            enemy.hp == enemy.hp - self.magic.dmg
+            print(f"{self.name} нанёс {self.magic.dmg} урона {enemy.name}")
+            print(f"у {enemy.name} осталось {enemy.hp}")
 
 class Weapon:
     def __init__(self, name, dmg_min, dmg_max, price):
@@ -99,6 +113,15 @@ class Armor:
 
     def show_characteristics(self):
         return f"{self.name}, defence: {self.defence}, price: {self.price}"
+    
+class Magic:
+    def __init__(self, name, dmg, price):
+        self.name = name
+        self.dmg = dmg
+        self.price = price
+
+    def show_characteristics(self):
+        return f"{self.name}, dmg: {self.dmg}, price: {self.price}"
     
 
 class Potion:
@@ -121,11 +144,13 @@ class Room:
 
     def fight(self, enemy, hero):
         while hero.hp > 0 and enemy.hp > 0:
-            fight_vibor = int(input("выбери действие: 1 ударить оружием, 2 выпить зелье"))
+            fight_vibor = int(input("выбери действие: 1 ударить оружием, 2 выпить зелье, 3 ударить магией"))
             if fight_vibor == 2:
                 hero.use_heal_potion()
             elif fight_vibor == 1:
                 hero.deal_damage(enemy)
+            elif fight_vibor == 3:
+                hero.magic_dmg(enemy)
             if enemy.hp > 0:
                 enemy.deal_damage(hero)
         if hero.hp > 0:
